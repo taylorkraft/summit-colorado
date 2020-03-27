@@ -12,7 +12,7 @@ class MountainsController < ApplicationController
 
   get '/mountains/:id' do
       id = params[:id]
-      @mountain = Mountain.find_by(id)
+      @mountain = Mountain.find_by_id(id)
       if @mountain
         erb :"mountains/show"
       else
