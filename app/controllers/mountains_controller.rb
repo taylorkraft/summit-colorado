@@ -6,12 +6,18 @@ class MountainsController < ApplicationController
     erb :"mountains/index"
   end
 
-  get '/mountains/new' do
+  #get '/mountains/new' do
     
-  end
+  #end
 
   get '/mountains/:id' do
-    
+      id = params[:id]
+      @mountain = Mountain.find_by(id)
+      if @mountain
+        erb :"mountains/show"
+      else
+        redirect '/mountains'
+      end
   end
 
   post '/mountains' do
