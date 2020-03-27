@@ -1,4 +1,4 @@
-class MountainsController < ApplicationController
+class MountainController < ApplicationController
 
   get '/mountains' do
     
