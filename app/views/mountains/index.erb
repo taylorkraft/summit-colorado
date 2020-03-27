@@ -1,0 +1,6 @@
+<h3>Mountains (index page)</h3>
+<ul>
+<% @mountains.all.each do |mtn| %>
+    <li><%= mtn.name %> - <%= mtn.elevation %></li>
+<%end%>
+</ul>
