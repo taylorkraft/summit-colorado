@@ -1,18 +1,19 @@
 class MountainsController < ApplicationController
 
+    #display a list of all mountains
   get '/mountains' do
     @mountains = Mountain.all 
 
     erb :"mountains/index"
   end
 
-  #get '/mountains/new' do
+  get '/mountains/new' do
     
-  #end
+  end
 
+    #displays a specific mountain based on id
   get '/mountains/:id' do
-      id = params[:id]
-      @mountain = Mountain.find_by_id(id)
+      @mountain = Mountain.find_by_id(params[:id])
       if @mountain
         erb :"mountains/show"
       else
