@@ -6,6 +6,6 @@ end
 
 use Rack::MethodOverride
 use MountainsController
-use UsersController
 use SessionsController
+use UsersController
 run ApplicationController
