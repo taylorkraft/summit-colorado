@@ -1,14 +1,16 @@
 class MountainsController < ApplicationController
 
-    #display a list of all mountains
+    #display a list of all mountains - this method works
   get '/mountains' do
     @mountains = Mountain.all 
 
     erb :"mountains/index"
   end
 
-  get '/mountains/new' do
-    
+  get '/mountains/new' do 
+    redirect_if_not_logged_in
+
+    erb :'/mountains/new'
   end
 
     #displays a specific mountain based on id

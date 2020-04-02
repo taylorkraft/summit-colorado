@@ -10,7 +10,22 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :home
+    if !logged_in? 
+      erb :home
+    else
+      redirect "sessions/home/#{@user.id}"
+    end
   end
 
+  helpers do
+
+    def logged_in?
+      @user # !!@user
+    end
+
+    def redirect_if_not_logged_in
+      redirect '/login' if !logged_in?
+    end
+
+  end
 end
