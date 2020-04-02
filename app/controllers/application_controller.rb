@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
   helpers do
 
     def logged_in?
-      @user # !!@user
+      @user #!!@user
     end
 
     def redirect_if_not_logged_in
