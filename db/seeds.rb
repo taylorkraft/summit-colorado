@@ -1,3 +1,5 @@
+Mountain.destroy_all
+
 Mountain.create(name: "Pikes Peak", elevation: "14,114'", summited: true)
 Mountain.create(name: "Mount Elbert", elevation: "14,439'", summited: false)
 Mountain.create(name: "Longs Peak", elevation: "14,259'", summited: true)
@@ -8,3 +10,6 @@ Mountain.create(name: "Mount Massive", elevation: "14,429'", summited: false)
 Mountain.create(name: "La Plata Peak", elevation: "14,360'", summited: false)
 Mountain.create(name: "Crestone Peak", elevation: "14,295'", summited: true)
 Mountain.create(name: "Mount Lincoln", elevation: "14,295'", summited: true)
+User.create(name: "Nelson", email: "Nelson@gmail.com", password_digest: "Password")
+User.create(name: "Taylor", email: "Taylor@gmail.com", password_digest: "Password2")
+User.create(name: "Steph", email: "Steph@gmail.com", password_digest: "Password3")
