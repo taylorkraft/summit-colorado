@@ -1,0 +1,10 @@
+<h1>Edit A Mountain</h1>
+<form action="/mountains/<%= @mountain.id%>" method="POST">
+<input type="hidden" name="" value="patch">
+<label>Name</label>
+<input type="text" name="mountain[name]" value="<%= @mountain.name%>">
+<label>Elevation</label>
+<input type="text" name="mountain[elevation]" value="<%= @mountain.elevation%>">
+<input type="checkbox" name="mountain[summited]" <%=@mountain.summited ? "checked" : nil%>>
+<input type="submit">
+</form>
