@@ -9,11 +9,11 @@ class ApplicationController < Sinatra::Base
     set :session_secret, 'summit_secret' 
   end
 
-  get "/" do #displays our 'home' page if a user is not logged in already
+  get '/' do #displays our 'home' page if a user is not logged in already
     if !logged_in? 
       erb :home
     else
-      redirect "/users/#{current_user.id}" #if a user is logged in, displays user home page relevant to unique id
+      redirect "/users/#{current_user.id}" #if a user is logged in, displays user home page
     end
   end
 
@@ -28,16 +28,12 @@ class ApplicationController < Sinatra::Base
     end
 
     def login(email, password_digest)
-      user = User.find_by(:email => email) 
-       if user && user.authenticate(password_digest)
+      user = User.find_by(email: params[:email]) 
+       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
        else
         redirect '/login'
        end
      end
-
-    def redirect_if_not_logged_in #redirects a user to the login page if they are not already logged in
-      redirect '/login' if !logged_in?
-    end
   end
 end

@@ -9,20 +9,10 @@ class SessionsController < ApplicationController
     current_user
     redirect "/users/#{current_user.id}"
   end
-  
-  # post '/sessions' do
-  #   @user = User.find_by(email: params[:email], password: params[:password])
-  #   if @user
-  #     session[:user_id] = @user.id
-  #     erb :"/sessions/home"
-  #   else
-  #     redirect '/login'
-  #   end
-  # end
 
   post '/logout' do #clears the session (logs out user) and displays 'home' page 
     session.clear
-    redirect '/'
+    redirect '/login'
   end
 
 end

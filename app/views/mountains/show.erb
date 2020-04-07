@@ -5,3 +5,10 @@
 <li>Elevation: <%= @mountain.elevation %></li>
 <li>Summit Status: <%= @mountain.summited ? "summited" : "not summited" %></li>
 </ul>
+
+<a href="/mountains/<%=@mountain.id%>/edit"><button> Edit </button></a>
+
+<form action="/mountains/<%= @mountain.id%>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete">
+</form>

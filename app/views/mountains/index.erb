@@ -1,6 +1,9 @@
+<body>
 <h1>Mountains Index</h1>
 <ul>
-<% @mountains.all.each do |mtn| %>
-    <li><%= mtn.name %> - <%= mtn.elevation %></li>
+<% @mountains.each do |mtn| %>
+    <li><a href="/mountains/<%= mtn.id%>"><%= mtn.id %>. <%= mtn.name %> - <%= mtn.elevation %></a>
 <%end%>
 </ul>
+
+</body>

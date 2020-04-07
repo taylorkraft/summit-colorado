@@ -1,19 +1,18 @@
 class MountainsController < ApplicationController
 
-    
+  # GET: /mountains 
   get '/mountains' do  #display a list of all mountains
     @mountains = Mountain.all
 
     erb :"mountains/index"
   end
-
+  #GET: /mountains/new
   get '/mountains/new' do #parses 'new' erb to display mountain form 
-    redirect_if_not_logged_in
 
     erb :'/mountains/new'
   end
 
-    
+  #GET: /mountains/5
   get '/mountains/:id' do #displays a specific mountain based on id
       @mountain = Mountain.find_by_id(params[:id]) #params available bc of bcrypt gem
       if @mountain
@@ -23,14 +22,45 @@ class MountainsController < ApplicationController
       end
   end
 
+  #POST: /mountains
   post '/mountains' do
-    @mountain = Mountain.new(name: params[:name], elevation: params[:elevation])
+    @mountain = Mountain.create(name: params[:name], elevation: params[:elevation], summited: params[:summited])
     if @mountain.valid?
-      @mountain.save
       session[:id] = @mountain.id
       redirect "/mountains/#{@mountain.id}"
     else
-      redirect "/mountains"
+      redirect '/mountains'
     end
+  end
+
+  #GET: /mountains/5/edit
+  get '/mountains/:id/edit' do
+    @mountain = Mountain.find_by_id(params[:id]) #finds a mountain by id - stores in instance variable
+    if @mountain #validates a mountain, if it exists displays a form to edit their mountain entry
+      erb :"mountains/edit" 
+    else
+      redirect '/mountains' #if the id is not found, redirects to mountain index page
+    end
+  end
+end
+
+  
+patch '/mountains/:id' do 
+  params[:mountain][:summited] = params[:mountain][:summited] ? true : false
+  @mountain = Mountain.find_by_id(params[:id])
+  if @mountain.update(params[:mountain])
+    redirect "/mountains/#{@mountain.id}"
+  else
+    redirect "/mountains/#{@mountain.id}/edit"
+  end
+end
+
+
+delete '/mountains/:id' do 
+  @mountain = Mountain.find_by_id(params[:id])
+  if @mountain.destroy
+    redirect '/mountains'
+  else
+    redirect "/mountains/#{@mountain.id}"
   end
 end
