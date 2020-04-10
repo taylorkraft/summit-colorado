@@ -9,7 +9,7 @@ class MountainsController < ApplicationController
   #GET: /mountains/new
   get '/mountains/new' do #parses 'new' erb to display mountain form 
 
-    erb :'/mountains/new'
+    erb :"/mountains/new"
   end
 
   #GET: /mountains/5
@@ -33,6 +33,25 @@ class MountainsController < ApplicationController
     end
   end
 
+  patch '/mountains/:id' do 
+    params[:mountain][:summited] = params[:mountain][:summited] ? true : false
+    @mountain = Mountain.find_by_id(params[:id])
+    if @mountain.update(params[:mountain])
+      redirect "/mountains/#{@mountain.id}"
+    else
+      redirect "/mountains/#{@mountain.id}/edit"
+    end
+  end
+
+  delete '/mountains/:id' do 
+    @mountain = Mountain.find_by_id(params[:id])
+    if @mountain.destroy
+      redirect '/mountains'
+    else
+      redirect "/mountains/#{@mountain.id}"
+    end
+  end
+
   #GET: /mountains/5/edit
   get '/mountains/:id/edit' do
     @mountain = Mountain.find_by_id(params[:id]) #finds a mountain by id - stores in instance variable
@@ -41,26 +60,5 @@ class MountainsController < ApplicationController
     else
       redirect '/mountains' #if the id is not found, redirects to mountain index page
     end
-  end
-end
-
-  
-patch '/mountains/:id' do 
-  params[:mountain][:summited] = params[:mountain][:summited] ? true : false
-  @mountain = Mountain.find_by_id(params[:id])
-  if @mountain.update(params[:mountain])
-    redirect "/mountains/#{@mountain.id}"
-  else
-    redirect "/mountains/#{@mountain.id}/edit"
-  end
-end
-
-
-delete '/mountains/:id' do 
-  @mountain = Mountain.find_by_id(params[:id])
-  if @mountain.destroy
-    redirect '/mountains'
-  else
-    redirect "/mountains/#{@mountain.id}"
   end
 end
