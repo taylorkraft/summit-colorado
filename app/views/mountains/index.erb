@@ -3,6 +3,7 @@
 <ul>
 <% @mountains.each do |mtn| %>
     <li><a href="/mountains/<%= mtn.id%>"><%= mtn.id %>. <%= mtn.name %> - <%= mtn.elevation %></a>
+    </li>
 <%end%>
 </ul><br>
 <a href="/mountains/new">Add A Mountain</a><br><br>

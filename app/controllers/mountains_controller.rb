@@ -27,7 +27,7 @@ class MountainsController < ApplicationController
 
   #POST: /mountains
   post '/mountains' do
-    @mountain = Mountain.create(name: params[:name], elevation: params[:elevation], summited: params[:summited])
+    @mountain = Mountain.create(name: params[:name], elevation: params[:elevation])
     if @mountain.valid?
       @mountain.user_id = current_user.id
       @mountain.save
@@ -38,7 +38,6 @@ class MountainsController < ApplicationController
   end
 
   patch '/mountains/:id' do 
-    params[:mountain][:summited] = params[:mountain][:summited] ? true : false
     @mountain = Mountain.find_by_id(params[:id])
     if @mountain.update(params[:mountain])
       redirect "/mountains/#{@mountain.id}"

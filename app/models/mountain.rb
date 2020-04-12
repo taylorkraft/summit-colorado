@@ -1,3 +1,4 @@
 class Mountain < ActiveRecord::Base
-  belongs_to :user
+  has_many :summits
+  has_many :users, through: :summits
 end

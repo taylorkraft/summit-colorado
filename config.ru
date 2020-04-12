@@ -8,4 +8,5 @@ use Rack::MethodOverride
 use MountainsController
 use SessionsController
 use UsersController
+use SummitsController
 run ApplicationController

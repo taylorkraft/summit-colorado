@@ -15,6 +15,11 @@
   </head>
   <body>
     <div class="wrapper">
+      <div>
+        <% if logged_in? %>
+          <a href="/users/<%=current_user.id%>">Profile</a>
+        <% end %>
+      </div>
 
         <%= yield %>
 
