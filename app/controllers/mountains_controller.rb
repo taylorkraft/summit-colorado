@@ -8,8 +8,11 @@ class MountainsController < ApplicationController
   end
   #GET: /mountains/new
   get '/mountains/new' do #parses 'new' erb to display mountain form 
-
-    erb :"/mountains/new"
+    if logged_in?
+      erb :"/mountains/new"
+    else
+      redirect '/users/login'
+    end
   end
 
   #GET: /mountains/5
@@ -26,8 +29,9 @@ class MountainsController < ApplicationController
   post '/mountains' do
     @mountain = Mountain.create(name: params[:name], elevation: params[:elevation], summited: params[:summited])
     if @mountain.valid?
-      session[:id] = @mountain.id
-      redirect "/mountains/#{@mountain.id}"
+      @mountain.user_id = current_user.id
+      @mountain.save
+      redirect "/users/#{current_user.id}"
     else
       redirect '/mountains'
     end

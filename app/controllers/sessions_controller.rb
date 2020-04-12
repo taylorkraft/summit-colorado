@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
   post '/logout' do #clears the session (logs out user) and displays 'home' page 
     session.clear
-    redirect '/login'
+    redirect '/'
   end
 
 end

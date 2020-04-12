@@ -27,9 +27,10 @@ class UsersController < ApplicationController
   get '/users/:id' do #displays a specific user's portfolio based on their id
     @user = User.find_by_id(params[:id])
     if @user
+      @mountains = @user.mountains #has_many
       erb :"/users/show.html"
     else
-      redirect '/users'
+      redirect '/mountains'
     end
   end
 end

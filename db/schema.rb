@@ -11,12 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200327185526) do
+ActiveRecord::Schema.define(version: 20200412190441) do
 
   create_table "mountains", force: :cascade do |t|
     t.string  "name"
     t.string  "elevation"
-    t.boolean "summited"
+    t.integer "user_id"
+  end
+
+  create_table "summits", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "mountain_id"
+    t.boolean "summited",    default: false
   end
 
   create_table "users", force: :cascade do |t|

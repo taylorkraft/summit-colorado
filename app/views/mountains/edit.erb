@@ -6,6 +6,6 @@
 <label>Elevation</label>
 <input type="text" name="mountain[elevation]" value="<%=@mountain.elevation%>">
 <label>Summited?</label>
-<input type="checkbox" name="mountain[summited]" <%=@mountain.summited ? "checked" : nil%>>
+<input type="checkbox" name="mountain[summited]" <%=@mountain.summited ? "checked" : false%>>
 <input type="submit" value="Update">
 </form>

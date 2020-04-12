@@ -1,6 +1,6 @@
-<h1>Your Portfolio</h1><br>
-
-
-<h2>"Welcome, <%=@user.name%>!"</h2><br>
+<h1><%=@user.name.capitalize%>'s Portfolio</h1><br>
+<% @mountains.each do |mtn| %>
+<h3><%= "#{mtn.name} - #{mtn.elevation}" %></h3>
+<%end%><br>
 
 <a href="/mountains">Add to your portfolio</a>
