@@ -13,14 +13,14 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: rgb(247, 166, 16);
+    background-image: url(https://theknow.denverpost.com/wp-content/uploads/2018/05/CD28FALLCOLOR_JA20478a.jpg);
     color: #333;
-    font-family: cursive;
+    font-family: sans-serif;
     line-height: 18px;
   }
 
   .wrapper {
-    background: rgb(232, 235, 234);
+    background: rgb(212, 209, 209, .7);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -36,7 +36,7 @@
   }
 
   h2 {
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid rgb(7, 0, 0);
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
@@ -61,7 +61,7 @@
   }
 
   .sidebar {
-    background: #eee;
+    background: #ccc;
     border: 1px solid #ccc;
     float: right;
     padding: 2.08333333333%; /* 5px / 240px */
@@ -77,7 +77,7 @@
   }
 
   footer.branding {
-    border-top: 2px solid #ccc;
+    border-top: 2px solid hsl(0, 100%, 1%);
     margin-top: 20px;
     padding-top: 20px;
   }

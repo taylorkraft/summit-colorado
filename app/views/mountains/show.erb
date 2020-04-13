@@ -4,13 +4,8 @@
     <li>Elevation: <%= @mountain.elevation %></li>
 </ol>
 
-<a href="/mountains/<%=@mountain.id%>/edit"><button> Edit </button></a>
+<a href="/mountains/<%=@mountain.id%>/edit"><button>&nbsp;&nbsp;EDIT MOUNTAIN&nbsp;&nbsp;</button></a>
 
 <form action="/summits/<%= @mountain.id %>" method="POST">
-    <input type='submit' value="Add to Portfolio">
-</form>
-
-<form action="/mountains/<%= @mountain.id%>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete">
+    <input type='submit' value="ADD TO PORTFOLIO">
 </form>

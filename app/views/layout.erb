@@ -15,19 +15,22 @@
   </head>
   <body>
     <div class="wrapper">
-      <div>
-        <% if logged_in? %>
+    <div align="right">
+      <% if logged_in? %>
           <a href="/users/<%=current_user.id%>">Profile</a>
         <% end %>
-      </div>
-
+        </div>
         <%= yield %>
 
       <footer class="branding">
+        <div align="right">
      <form method="POST" action="/logout">
-     <button type="submit">Logout</button>
+     <button type="submit">&nbsp;&nbsp;LOGOUT&nbsp;&nbsp;</button>
      </form>
+       </div><br>
+       <div align="right">
         <small>&copy; 2020 <strong>SummitColorado</strong></small>
+        </div>
       </footer>
     </div>
 
