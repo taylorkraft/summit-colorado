@@ -17,5 +17,4 @@ class SummitsController < ApplicationController
       redirect "/users/#{current_user.id}"
     end
   end
-  
 end

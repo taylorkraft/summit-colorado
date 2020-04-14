@@ -1,14 +1,14 @@
 <h1><%=@user.name.capitalize%>'s Summits</h1><br>
-
     <form action="/summits" method="POST">
     <% @mountains.each do |mtn| %>
-<label><%= "#{mtn.name} - #{mtn.elevation}" %></label>
+    <p><%= "#{mtn.name} - #{mtn.elevation}" %></p>
         <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="mountain_id" value='<%="#{mtn.id}"%>'>
         <input type="hidden" name="user_id" value='<%="#{@user.id}"%>'>
         <input type="submit" value="REMOVE">
+        <%end%>
     </form>
     
-<%end%><br>
+<br>
 
 <a href="/mountains"><button>ADD TO YOUR PORTFOLIO</button></a>

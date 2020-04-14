@@ -15,25 +15,26 @@
   </head>
   <body>
     <div class="wrapper">
-    <div align="right">
-      <% if logged_in? %>
+      <div align="right">
+        <% if logged_in? %>
           <a href="/users/<%=current_user.id%>">Profile</a>
         <% end %>
-        </div>
+      </div>
+
         <%= yield %>
 
       <footer class="branding">
         <div align="right">
-     <form method="POST" action="/logout">
-     <button type="submit">&nbsp;&nbsp;LOGOUT&nbsp;&nbsp;</button>
-     </form>
-       </div><br>
-       <div align="right">
+        <form action="/logout" method="POST">
+          <button type="submit">&nbsp;&nbsp;LOGOUT&nbsp;&nbsp;</button>
+        </form>
+        </div><br>
+
+      <div align="right">
         <small>&copy; 2020 <strong>SummitColorado</strong></small>
-        </div>
+      </div>
       </footer>
     </div>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
